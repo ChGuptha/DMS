@@ -4,15 +4,27 @@ import { Version } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneToggle
 } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'HomeCarouselWebPartStrings';
 import HomeCarousel from './components/HomeCarousel';
 import { IHomeCarouselProps } from './components/IHomeCarouselProps';
+import { IListService } from './services/IListService';
+import { ListMock } from './services/ListMock';
 
 export interface IHomeCarouselWebPartProps {
-  description: string;
+  enableNavigation: boolean;
+  enablePagination: boolean;
+  enableAutoplay: boolean;
+  delayAutoplay: number;
+  disableAutoplayOnInteraction: boolean;
+  slidesPerView: string;
+  slidesPerGroup: string;
+  spaceBetweenSlides: string;
+  enableGrabCursor: boolean;
+  enableLoop: boolean;
 }
 
 export default class HomeCarouselWebPart extends BaseClientSideWebPart<IHomeCarouselWebPartProps> {
@@ -21,7 +33,8 @@ export default class HomeCarouselWebPart extends BaseClientSideWebPart<IHomeCaro
     const element: React.ReactElement<IHomeCarouselProps > = React.createElement(
       HomeCarousel,
       {
-        description: this.properties.description
+        listService : new ListMock(),
+        swiperOptions : this.properties
       }
     );
 
@@ -37,16 +50,65 @@ export default class HomeCarouselWebPart extends BaseClientSideWebPart<IHomeCaro
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: 'Swiper Options'
           },
+          displayGroupsAsAccordion: true,
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: strings.GeneralGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneToggle('enableNavigation', {
+                  label: strings.EnableNavigation
+                }),
+                PropertyPaneToggle('enablePagination', {
+                  label: strings.EnablePagination,
+                  checked: true
+                }),
+                PropertyPaneTextField('slidesPerView', {
+                  label: strings.SlidesPerWiew,
+                  value: '1'
                 })
               ]
+            },
+            {
+              groupName: strings.AutoplayGroupName,
+              groupFields: [
+                PropertyPaneToggle('enableAutoplay', {
+                  label: strings.EnableAutoplay
+                }),
+                PropertyPaneTextField('delayAutoplay', {
+                  label: strings.DelayAutoplay,
+                  description: strings.Miliseconds,
+                  value: '2500',
+                  disabled: !this.properties.enableAutoplay
+                }),
+                PropertyPaneToggle('disableAutoplayOnInteraction', {
+                  label: strings.DisableAutoplayOnInteraction,
+                  disabled: !this.properties.enableAutoplay
+                })
+              ],
+              isCollapsed: true
+            },
+            {
+              groupName: strings.AdvancedGroupName,
+              groupFields: [
+                PropertyPaneTextField('slidesPerGroup', {
+                  label: strings.SlidesPerGroup,
+                  value: '3'
+                }),
+                PropertyPaneTextField('spaceBetweenSlides', {
+                  label: strings.SpaceBetweenSlides,
+                  description: strings.InPixels,
+                  value: '5'
+                }),
+                PropertyPaneToggle('enableGrabCursor', {
+                  label: strings.EnableGrabCursor
+                }),
+                PropertyPaneToggle('enableLoop', {
+                  label: strings.EnableLoop
+                })
+              ],
+              isCollapsed: true
             }
           ]
         }

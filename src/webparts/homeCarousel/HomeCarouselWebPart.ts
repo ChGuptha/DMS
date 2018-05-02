@@ -13,6 +13,7 @@ import HomeCarousel from './components/HomeCarousel';
 import { IHomeCarouselProps } from './components/IHomeCarouselProps';
 import { IListService } from './services/IListService';
 import { ListMock } from './services/ListMock';
+import { ListService } from './services/ListService';
 
 export interface IHomeCarouselWebPartProps {
   enableNavigation: boolean;
@@ -30,10 +31,12 @@ export interface IHomeCarouselWebPartProps {
 export default class HomeCarouselWebPart extends BaseClientSideWebPart<IHomeCarouselWebPartProps> {
 
   public render(): void {
+    let listService = new ListService();
+    listService.webPartContext = this.context;
     const element: React.ReactElement<IHomeCarouselProps > = React.createElement(
       HomeCarousel,
       {
-        listService : new ListMock(),
+        listService : listService,
         swiperOptions : this.properties
       }
     );

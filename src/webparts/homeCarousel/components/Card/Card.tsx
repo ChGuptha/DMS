@@ -8,8 +8,8 @@ export default class Card extends React.Component<ICardProps, {}> {
     return (
       <div className={styles.card}>
         <div className={styles.wrapper}>
-          <h3 className={styles.title}>{this.props.listItem.title}</h3>
-          <p className={styles.description}>{this.props.listItem.description}</p>
+          <h3 className={styles.title}>{this.props.listItem.Title}</h3>
+          <p className={styles.description}>{this.props.listItem.Body}</p>
         </div>
       </div>
     );

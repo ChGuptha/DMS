@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/homeCarousel/HomeCarouselWebPart.manifest.json"
         }
       ]
+    },
+    "solutoin-areas-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/solutoinAreas/SolutoinAreasWebPart.js",
+          "manifest": "./src/webparts/solutoinAreas/SolutoinAreasWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "HomeCarouselWebPartStrings": "lib/webparts/homeCarousel/loc/{locale}.js"
+    "HomeCarouselWebPartStrings": "lib/webparts/homeCarousel/loc/{locale}.js",
+    "SolutoinAreasWebPartStrings": "lib/webparts/solutoinAreas/loc/{locale}.js"
   }
 }

@@ -5,6 +5,9 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import { IHomeCarouselState } from './IHomeCarouselState'
 import { ListItem } from '../services/ListItem'
 import Card from './Card/Card'
+import ReactDOM = require('react-dom');
+
+require('../components/swiper-custom.min.css')
 
 const Swiper = require('swiper/dist/js/swiper.min')
 
@@ -19,10 +22,9 @@ export default class HomeCarousel extends React.Component<IHomeCarouselProps, IH
   }
 
   public componentDidMount() : void {
+    
     this.props.listService.getAll().then((result:Array<ListItem>) => {
-
-      this.setState({listItems : result});
-
+      this.setState({listItems : result});      
       this.setSwiper();
     });
   }
@@ -42,16 +44,11 @@ export default class HomeCarousel extends React.Component<IHomeCarouselProps, IH
                       </div>;
                     })}
                 </div>
-                {this.props.swiperOptions.enableNavigation &&
-                  <div className={`swiper-button-next next-${this.uniqueId}`}></div>
-                }
-                {this.props.swiperOptions.enableNavigation &&
-                  <div className={`swiper-button-prev prev-${this.uniqueId}`}></div>
-                }
-
-                {this.props.swiperOptions.enablePagination !== false &&
+                  <div className={`swiper-navigation`}>
+                    <div className={`swiper-button-next next-${this.uniqueId}`}></div>
+                    <div className={`swiper-button-prev prev-${this.uniqueId}`}></div>
+                  </div>
                   <div className={`swiper-pagination pagination-${this.uniqueId}`}></div>
-                }
               </div>
             </div>
             <div className={styles.column} style={{textAlign : 'center'}}>
@@ -67,36 +64,21 @@ export default class HomeCarousel extends React.Component<IHomeCarouselProps, IH
     const opts = this.props.swiperOptions;
 
     const options: any = {
-      slidesPerView: parseInt(opts.slidesPerView) || 1,
-      slidesPerGroup: parseInt(opts.slidesPerGroup) || 1,
-      spaceBetween: parseInt(opts.spaceBetweenSlides) || 5,
-      loop: opts.enableLoop || false,
-      grabCursor: opts.enableGrabCursor || false
-    };
-
-    if (opts.enablePagination !== false) {
-
-      options.pagination = {
+      spaceBetween: 10,
+      loop: true,
+      autoplay: {
+        delay : 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
         el: `.pagination-${this.uniqueId}`,
-        clickable: true,
-      };
-    }
-
-    if (opts.enableNavigation) {
-
-      options.navigation = {
+        clickable: true
+      },
+      navigation: {
         nextEl: `.next-${this.uniqueId}`,
-        prevEl: `.prev-${this.uniqueId}`,
-      };
-    }
-
-    if (opts.enableAutoplay) {
-
-      options.autoplay = {
-        delay: opts.delayAutoplay,
-        disableOnInteraction: opts.disableAutoplayOnInteraction,
-      };
-    }
+        prevEl: `.prev-${this.uniqueId}`
+      }
+    };
 
     return new Swiper(`.container-${this.uniqueId}`, options);
   }

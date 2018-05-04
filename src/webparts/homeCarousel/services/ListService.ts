@@ -19,7 +19,7 @@ import { IListService } from '../services/IListService';
     }
     
     public getAll():Promise<Array<ListItem>>{
-        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl+`/_api/lists/getByTitle('Announcements')/Items`, SPHttpClient.configurations.v1)
+        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl+`/_api/lists/getByTitle('Announcements')/Items?$select=Title,Body&$filter=Active eq 1`, SPHttpClient.configurations.v1)
             .then((response: SPHttpClientResponse) => {
                 return response.json()
             })

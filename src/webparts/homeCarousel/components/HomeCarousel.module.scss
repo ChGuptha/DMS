@@ -1,36 +1,36 @@
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
 @import '~swiper/dist/css/swiper.min.css';
+
 .homeCarousel {
   .container {
-    max-width: 700px;
     margin: 0px auto;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    @include ms-lg12
   }
 
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;
-    background-color: $ms-color-themeDark;
+    background-color: #5c2d91;
   }
 
   .column {
     @include ms-Grid-col;
     @include ms-lg6;
-    max-height: 300px;
+    max-height: 500px;
     padding: 0;
     img{
-      height: 300px;
+      margin-top: 20px;
     }
 
     .carousel-container{
-      height: 300px;
-      background-color: $ms-color-themeDarker;
+      height: 500px;
+      background-color: #32145a;
       padding:0 10px 0 10px;
     }
   
   }
 
-  
   .slide {
     font-size: 16px;
     display: -webkit-box;

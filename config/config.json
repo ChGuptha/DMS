@@ -17,11 +17,20 @@
           "manifest": "./src/webparts/solutoinAreas/SolutoinAreasWebPart.manifest.json"
         }
       ]
+    },
+    "partner-play-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/partnerPlay/PartnerPlayWebPart.js",
+          "manifest": "./src/webparts/partnerPlay/PartnerPlayWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "HomeCarouselWebPartStrings": "lib/webparts/homeCarousel/loc/{locale}.js",
-    "SolutoinAreasWebPartStrings": "lib/webparts/solutoinAreas/loc/{locale}.js"
+    "SolutoinAreasWebPartStrings": "lib/webparts/solutoinAreas/loc/{locale}.js",
+    "PartnerPlayWebPartStrings": "lib/webparts/partnerPlay/loc/{locale}.js"
   }
 }

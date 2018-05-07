@@ -1,0 +1,43 @@
+.partnerPlayCard{
+    .container {
+        max-width: 100%;
+        margin: 0px auto;
+        position: relative;
+    }
+
+    .partnerPlayCardWrapper{
+        float: left;
+        display: block;
+        height: 240px;
+        position: relative;
+        border: #fff 1px solid;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .partnerPlayCardImage{
+        height: 240px;
+        width: 100%;
+    }
+
+    .partnerPlayCardHoverPanel{
+        position: absolute;
+        top: 75%;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 2px;
+        overflow: hidden;
+        transition-property: top;
+        transition-duration: 0.5s;
+    }
+
+    .partnerPlayCardHoverPanel:hover{
+        top:0px;
+    }
+
+    .partnerPlayCardTitle{
+        color: #fff;
+        padding: 15px;
+    }
+}

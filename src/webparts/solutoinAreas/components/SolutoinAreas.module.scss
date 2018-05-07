@@ -2,24 +2,83 @@
 
 .solutoinAreas {
   .container {
-    max-width: 700px;
     margin: 0px auto;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    @include ms-lg12;
   }
 
   .row {
     @include ms-Grid-row;
-    @include ms-fontColor-white;
-    background-color: $ms-color-themeDark;
-    padding: 20px;
   }
 
   .column {
     @include ms-Grid-col;
-    @include ms-lg10;
-    @include ms-xl8;
-    @include ms-xlPush2;
-    @include ms-lgPush1;
+    @include ms-lg12;
+  }
+
+  h3{
+    text-transform: uppercase;
+  }
+
+  .solutionArea:nth-child(2n){
+    background-color: #5c005c;
+  }
+  
+  .solutionArea{
+    display: inline-block;
+    width: 19.8%;    
+    background-color: #32145a;
+    height:auto;
+    margin-right:2px;
+
+    span{      
+      padding: 15px;
+      display: inline-block;
+      color: #fff;
+      font-size: 1.2em;
+    }
+  }
+
+  .partnerPlaysRow{
+     min-height: 600px;
+     height: 1200px;
+     overflow-y: auto;
+  }
+
+  .partnerPlays{
+    width: 19.8%;
+    float: left;
+    position: absolute;
+  }
+
+  @for $i from 1 through 5{    
+    .partnerPlays:nth-child(#{$i}) {
+      $j : $i - 1;
+      left: 19.8% * $j
+    }
+  }
+
+  .playTypes{
+    h3{
+      width: 20%;
+      display: inline-block;
+    }
+
+    div{
+      width: 80%;
+      display: inline-block;
+
+      a{
+        padding: 0 50px;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      a.active{
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
   }
 
   .title {

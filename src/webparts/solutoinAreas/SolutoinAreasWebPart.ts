@@ -10,17 +10,21 @@ import {
 import * as strings from 'SolutoinAreasWebPartStrings';
 import SolutoinAreas from './components/SolutoinAreas';
 import { ISolutoinAreasProps } from './components/ISolutoinAreasProps';
-
+import { SharePointDataProvider } from './dataProviders/SharePointDataProvider'
 export interface ISolutoinAreasWebPartProps {
   description: string;
 }
 
-export default class SolutoinAreasWebPart extends BaseClientSideWebPart<ISolutoinAreasWebPartProps> {
+export default class SolutoinAreasWebPart extends BaseClientSideWebPart<ISolutoinAreasWebPartProps> {  
 
   public render(): void {
+    let sharePointDataProvider =  new SharePointDataProvider();
+    sharePointDataProvider.webPartContext = this.context;
+
     const element: React.ReactElement<ISolutoinAreasProps > = React.createElement(
       SolutoinAreas,
       {
+        dataProvider : sharePointDataProvider,
         description: this.properties.description
       }
     );

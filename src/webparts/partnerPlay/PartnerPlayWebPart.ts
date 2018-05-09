@@ -10,6 +10,7 @@ import {
 import * as strings from 'PartnerPlayWebPartStrings';
 import PartnerPlay from './components/PartnerPlay';
 import { IPartnerPlayProps } from './components/IPartnerPlayProps';
+import { SharePointDataProvider } from './dataProviders/SharePointDataProvider'
 
 export interface IPartnerPlayWebPartProps {
   description: string;
@@ -18,9 +19,13 @@ export interface IPartnerPlayWebPartProps {
 export default class PartnerPlayWebPart extends BaseClientSideWebPart<IPartnerPlayWebPartProps> {
 
   public render(): void {
+    let sharePointDataProvider =  new SharePointDataProvider();
+    sharePointDataProvider.webPartContext = this.context;
+
     const element: React.ReactElement<IPartnerPlayProps > = React.createElement(
       PartnerPlay,
       {
+        dataProvider : sharePointDataProvider,
         description: this.properties.description
       }
     );

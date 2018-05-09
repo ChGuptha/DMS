@@ -41,7 +41,7 @@ export class SharePointDataProvider{
     }
 
     public getPartnerPlays() : Promise<Array<PartnerPlay>>{
-        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl + `/_api/lists/getByTitle('Partner%20Plays')/Items?$select=Title,PlayType/ID,PlayType/Title,PlayThumbnail,SolutionArea/ID,SolutionArea/Title&$expand=PlayType,SolutionArea`, SPHttpClient.configurations.v1)
+        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl + `/_api/lists/getByTitle('Partner%20Plays')/Items?$select=ID,Title,PlayType/ID,PlayType/Title,PlayThumbnail,SolutionArea/ID,SolutionArea/Title&$expand=PlayType,SolutionArea`, SPHttpClient.configurations.v1)
         .then((response: SPHttpClientResponse) => {
             return response.json()
         })

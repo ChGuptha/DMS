@@ -37,6 +37,10 @@ export default class SolutoinAreas extends React.Component<ISolutoinAreasProps, 
     });
   }
 
+  public navigateUrl(solutionAreaID :  number){
+    window.open('./SolutionArea.aspx?sID=' + solutionAreaID, '_blank');
+  }
+
   public render(): React.ReactElement<ISolutoinAreasProps> {
     return (
       <div className={ styles.solutoinAreas }>
@@ -47,7 +51,7 @@ export default class SolutoinAreas extends React.Component<ISolutoinAreasProps, 
               {this.state.solutionAreas.length && 
                 this.state.solutionAreas.map((SolutionArea, i) =>{
                   return <div className={` ${styles.solutionArea}`} >
-                            <span>{SolutionArea.Title}</span>
+                            <span><a href="#" onClick= { () => this.navigateUrl(SolutionArea.ID) }>{SolutionArea.Title}</a></span>
                           </div>;
               })}
             </div>

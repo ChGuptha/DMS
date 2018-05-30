@@ -2,7 +2,8 @@ import {
     SPHttpClient,
     SPHttpClientBatch,
     SPHttpClientResponse,
-    SPHttpClientConfiguration
+    SPHttpClientConfiguration,
+    ISPHttpClientOptions
   } from '@microsoft/sp-http';
 import { IWebPartContext } from '@microsoft/sp-webpart-base'
 import { SolutionArea } from '../models/SolutionArea'
@@ -19,9 +20,10 @@ export class SharePointDataProvider{
     public get webPartContext(): IWebPartContext {
     return this._webPartContext;
     }
+    opts: ISPHttpClientOptions = { headers: { 'X-ClientTag': 'NONISV|Microsoft|DMS|1.0.0.0' } };
 
     public getSolutionAreas() : Promise<Array<SolutionArea>>{
-        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl+`/_api/lists/getByTitle('Solution Areas')/Items?$select=Title,ID`, SPHttpClient.configurations.v1)
+        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl+`/_api/lists/getByTitle('Solution Areas')/Items?$select=Title,ID`, SPHttpClient.configurations.v1, this.opts)
             .then((response: SPHttpClientResponse) => {
                 return response.json()
             })
@@ -31,7 +33,7 @@ export class SharePointDataProvider{
     }
 
     public getPlayTypes() : Promise<Array<PlayType>>{
-        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl + `/_api/lists/getByTitle('Partner Play Types')/Items?$select=Title,ID`, SPHttpClient.configurations.v1)
+        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl + `/_api/lists/getByTitle('Partner Play Types')/Items?$select=Title,ID`, SPHttpClient.configurations.v1, this.opts)
             .then((response: SPHttpClientResponse) => {
                 return response.json()
             })
@@ -41,7 +43,7 @@ export class SharePointDataProvider{
     }
 
     public getPartnerPlays() : Promise<Array<PartnerPlay>>{
-        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl + `/_api/lists/getByTitle('Partner%20Plays')/Items?$select=ID,Title,PlayType/ID,PlayType/Title,PlayThumbnail,SolutionArea/ID,SolutionArea/Title&$expand=PlayType,SolutionArea`, SPHttpClient.configurations.v1)
+        return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl + `/_api/lists/getByTitle('Partner%20Plays')/Items?$select=ID,Title,PlayType/ID,PlayType/Title,PlayThumbnail,SolutionArea/ID,SolutionArea/Title&$expand=PlayType,SolutionArea`, SPHttpClient.configurations.v1, this.opts)
         .then((response: SPHttpClientResponse) => {
             return response.json()
         })

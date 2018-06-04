@@ -25,12 +25,21 @@
           "manifest": "./src/webparts/partnerPlay/PartnerPlayWebPart.manifest.json"
         }
       ]
+    },
+    "practice-page-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/practicePage/PracticePageWebPart.js",
+          "manifest": "./src/webparts/practicePage/PracticePageWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "HomeCarouselWebPartStrings": "lib/webparts/homeCarousel/loc/{locale}.js",
     "SolutoinAreasWebPartStrings": "lib/webparts/solutoinAreas/loc/{locale}.js",
-    "PartnerPlayWebPartStrings": "lib/webparts/partnerPlay/loc/{locale}.js"
+    "PartnerPlayWebPartStrings": "lib/webparts/partnerPlay/loc/{locale}.js",
+    "PracticePageWebPartStrings": "lib/webparts/practicePage/loc/{locale}.js"
   }
 }

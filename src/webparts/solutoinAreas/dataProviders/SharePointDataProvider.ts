@@ -20,7 +20,7 @@ export class SharePointDataProvider{
     public get webPartContext(): IWebPartContext {
     return this._webPartContext;
     }
-    opts: ISPHttpClientOptions = { headers: { 'X-ClientTag': 'NONISV|Microsoft|DMS|1.0.0.0' } };
+    opts: ISPHttpClientOptions = { headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool|1.0' } };
 
     public getSolutionAreas() : Promise<Array<SolutionArea>>{
         return this._webPartContext.spHttpClient.get(this._webPartContext.pageContext.web.absoluteUrl+`/_api/lists/getByTitle('Solution Areas')/Items?$select=Title,ID`, SPHttpClient.configurations.v1, this.opts)

@@ -1,0 +1,78 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.partnerPlay {
+  .container {
+    margin: 0px auto;
+    @include ms-lg12;
+  }
+
+  .row {
+    @include ms-Grid-row;
+  }
+  .partnerplayrow
+  {
+    @include ms-Grid-row;
+    border: rgba(92,0,92,.8);
+    border-style: solid;
+    border-width: thin; 
+  }
+  .partnerplayrow2
+  {
+    @include ms-Grid-row; 
+  }
+  .column {
+    @include ms-Grid-col;
+    @include ms-lg12;
+  }
+  .partnerplaycolumn1header{
+    @include ms-Grid-col;
+    @include ms-lg6;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-left: rgba(92,0,92,.8);
+    border-right-style: solid; 
+    border-width: thin; 
+    min-height: 30px;
+  }
+  .partnerplaycolumn1{
+    @include ms-Grid-col;
+    @include ms-lg6;
+    border-left: rgba(92,0,92,.8);
+    border-right-style: solid; 
+    border-width: thin; 
+    min-height: 240px;  
+  }
+  .partnerplaycolumn2header{
+    @include ms-Grid-col;
+    @include ms-lg3;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-left: rgba(92,0,92,.8);
+    border-right-style: solid; 
+    border-width: thin; 
+    min-height: 30px;
+  }
+  .partnerplaycolumn2{
+    @include ms-Grid-col;
+    @include ms-lg3;
+    padding-left: 20px;
+    border-left: rgba(92,0,92,.8);
+    border-right-style: solid; 
+    border-width: thin; 
+    min-height: 240px;  
+  }
+  .partnericoncolumn{
+    @include ms-Grid-col;
+    @include ms-lg12;
+    text-align:center;
+    padding-top:20%; 
+    min-height: 30px;  
+  }
+  .partnerdescriptionolumn{
+    @include ms-Grid-col;
+    @include ms-lg12;
+    text-align:center;
+    padding-top:10%; 
+    min-height: 30px;  
+  }
+}

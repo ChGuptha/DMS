@@ -1,0 +1,45 @@
+.partnerPlayDetailCard{
+    .container {
+        max-width: 100%;
+        margin: 0px auto;
+        position: relative;
+    }
+
+    .partnerPlayDetailCardWrapper{
+        float: left;
+        display: block;
+        //height: 480px;
+        position: relative;
+        border: #fff 1px solid;
+        margin: 0px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .partnerPlayDetailCardImage{
+        //height: 480px;
+        width: 100%;
+    }
+
+    .partnerPlayDetailCardHoverPanel{
+        position: absolute;
+        top: 75%;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 2px;
+        overflow: hidden;
+        transition-property: top;
+        transition-duration: 0.5s;
+        background-color: rgba(92,0,92,0.8);
+    }
+
+    .partnerPlayDetailCardHoverPanel:hover{
+        top:0px;
+    }
+
+    .partnerPlayDetailCardTitle{
+        color: #fff;
+        padding: 15px;
+    }
+}

@@ -1,4 +1,4 @@
 {
   "$schema": "https://dev.office.com/json-schemas/spfx-build/write-manifests.schema.json",
-  "cdnBasePath": "https://publiccdn.sharepointonline.com/microsoft.sharepoint.com/teams/MSITAppCDN/SiteAssets/"
+  "cdnBasePath": "https://publiccdn.sharepointonline.com/microsoft.sharepoint.com/teams/MSITAppCDN/SiteAssets/OCPTool"
 }

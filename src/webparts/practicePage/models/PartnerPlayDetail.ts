@@ -4,13 +4,15 @@ export class PartnerPlayDetail{
     public ID:number;
     public Title:string;
     public PlayDescription: string;
-    public PlayImage: PlayImageOrLink;
-    public PlayLink: PlayImageOrLink;
+    public PlayImage: string;
+    public PlayLink: string;
     public SalesConversationsDescription: string;
-    public SalesConversationsIcon: PlayImageOrLink;
-    public SalesConversationsLink: PlayImageOrLink;
+    public SalesConversationsIcon: string;
+    public SalesConversationsLink: string;
     public MarketOpportunitiesDescription: string;
-    public MarketOpportunitiesIcon: PlayImageOrLink;
-    public MarketOpportunitiesLink: PlayImageOrLink;
-    public SolutionArea: any;
+    public MarketOpportunitiesIcon: string;
+    public MarketOpportunitiesLink: string;
+    //public SolutionArea: any;
+    public Solution_x0020_Area_x003a_ID: number;
+    public Solution_x0020_Area_x003a_Title: string;
 }

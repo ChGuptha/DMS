@@ -30,7 +30,7 @@ export default class PartnerPlay extends React.Component<IPartnerPlayProps, IPar
         <div className={ styles.container }>         
           <div className={ styles.row }>            
             <div className={ styles.column }>
-            <h1>{this.state.partnerPlayDetails.length && <p>{this.state.partnerPlayDetails[0].SolutionArea.Title}</p>}</h1>
+            <h1>{this.state.partnerPlayDetails.length && <p>{this.state.partnerPlayDetails[0].Solution_x0020_Area_x003a_Title}</p>}</h1>
               <div className={ styles.partnerplayrow }>
                 <div className={ styles.partnerplaycolumn1header }>
                   PLAYS
@@ -53,7 +53,7 @@ export default class PartnerPlay extends React.Component<IPartnerPlayProps, IPar
               <div className={ styles.partnerplaycolumn2 }>
                 <div className={ styles.partnerplayrow2 }>
                   <div className={ styles.partnericoncolumn }>
-                  <img src={PartnerPlayDetail.SalesConversationsIcon.Url}/>
+                  <img src={PartnerPlayDetail.SalesConversationsIcon}/>
                   </div>
                 </div>
                 <div className={ styles.partnerplayrow2}>
@@ -65,7 +65,7 @@ export default class PartnerPlay extends React.Component<IPartnerPlayProps, IPar
               <div className={ styles.partnerplaycolumn2 }>
                 <div className={ styles.partnerplayrow2 }>
                   <div className={ styles.partnericoncolumn }>
-                  <img src={PartnerPlayDetail.MarketOpportunitiesIcon.Url}/>
+                  <img src={PartnerPlayDetail.MarketOpportunitiesIcon}/>
                   </div>
                 </div>
                 <div className={ styles.partnerplayrow2}>

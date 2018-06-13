@@ -74,7 +74,7 @@ export default class SolutoinAreas extends React.Component<ISolutoinAreasProps, 
                     this.state.solutionAreas.map((SolutionArea, i) => {
                       return <div className = {` ${styles.partnerPlays} `} >
                             {this.state.partnerPlays.length &&
-                              this.state.partnerPlays.filter(p => p.SolutionArea.ID == SolutionArea.ID && (this.state.selectedPlayType == 0 || p.PlayType.ID == this.state.selectedPlayType)).map((PartnerPlay, j) =>{
+                              this.state.partnerPlays.filter(p => p.Solution_x0020_Area_x003a_ID == SolutionArea.ID && (this.state.selectedPlayType == 0 || p.Play_x0020_Type_x003a_ID == this.state.selectedPlayType)).map((PartnerPlay, j) =>{
                                 return <PartnerPlayCard partnerPlay={PartnerPlay} style={ (i%2) + 1 == 1 ? `rgba(92,0,92,0.8)`: `rgba(50,20,90, 0.8)`} />
                               })}            
                             </div>

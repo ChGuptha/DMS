@@ -2,6 +2,6 @@ import { PlayImageOrLink } from "./PlayImageOrLink";
 
 export class CardDetail{
     Title: string;
-    Image: PlayImageOrLink;
-    Link: PlayImageOrLink;
+    Image: string;
+    Link: string;
 }

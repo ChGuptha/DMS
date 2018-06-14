@@ -20,11 +20,11 @@ export class SharePointDataProvider{
     public get webPartContext(): IWebPartContext {
     return this._webPartContext;
     }
-    opts: ISPHttpClientOptions = { headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' } };
+    opts: ISPHttpClientOptions = { headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' } };
 
     public getSolutionAreas() : Promise<Array<SolutionArea>>{
         this.opts = { 
-            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' },
+            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' },
             body: JSON.stringify({
                 parameters: {
                     RenderOptions: 2,
@@ -57,7 +57,7 @@ export class SharePointDataProvider{
 
     public getPlayTypes() : Promise<Array<PlayType>>{
         this.opts = { 
-            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' },
+            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' },
             body: JSON.stringify({
                 parameters: {
                     RenderOptions: 2,
@@ -90,7 +90,7 @@ export class SharePointDataProvider{
 
     public getPartnerPlays() : Promise<Array<PartnerPlay>>{
         this.opts = { 
-            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' },
+            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' },
             body: JSON.stringify({
                 parameters: {
                     RenderOptions: 2,

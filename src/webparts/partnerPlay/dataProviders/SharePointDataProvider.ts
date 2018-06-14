@@ -20,12 +20,12 @@ export class SharePointDataProvider{
     }
 
     opts: ISPHttpClientOptions = { 
-        headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' }
+        headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' }
     };
 
     public getPartnerPlayDetails(ID:number) : Promise<PartnerPlayDetail>{
         this.opts = { 
-            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' },
+            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' },
             body: JSON.stringify({
                 parameters: {
                     RenderOptions: 2,

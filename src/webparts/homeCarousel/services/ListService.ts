@@ -20,7 +20,7 @@ import { IListService } from '../services/IListService';
     }
     
     opts: ISPHttpClientOptions = { 
-        headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' },
+        headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' },
         body: JSON.stringify({
             parameters: {
                 RenderOptions: 2,

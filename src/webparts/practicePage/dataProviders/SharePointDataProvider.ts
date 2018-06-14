@@ -18,10 +18,11 @@ export class SharePointDataProvider{
     public get webPartContext(): IWebPartContext {
     return this._webPartContext;
     }
-    opts: ISPHttpClientOptions = { headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' } }; 
+    opts: ISPHttpClientOptions = { headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' } }; 
+
     public getPartnerPlayDetails(ID:number) : Promise<Array<PartnerPlayDetail>>{
         this.opts = { 
-            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0' },
+            headers: { 'X-ClientTag': 'NONISV|Microsoft|OCPTool/1.0', 'User-Agent' : 'NONISV|Microsoft|OCPTool/1.0' },
             body: JSON.stringify({
                 parameters: {
                     RenderOptions: 2,

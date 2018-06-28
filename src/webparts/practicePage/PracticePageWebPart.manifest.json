@@ -20,7 +20,9 @@
     "description": { "default": "practicePage description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "practicePage"
+      "column1": "Solution Execution Priority",
+      "column2": "Execution Play Conversation",
+      "column3": "Partner Play"
     }
   }]
 }

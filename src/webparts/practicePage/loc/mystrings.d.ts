@@ -1,7 +1,8 @@
-declare interface IPracticePageWebPartStrings {
-  PropertyPaneDescription: string;
+declare interface IPracticePageWebPartStrings {  
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  Column1Label: string;
+  Column2Label: string;
+  Column3Label: string;
 }
 
 declare module 'PracticePageWebPartStrings' {

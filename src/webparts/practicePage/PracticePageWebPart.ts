@@ -13,7 +13,9 @@ import { IPartnerPlayProps } from './components/IPartnerPlayProps';
 import { SharePointDataProvider } from './dataProviders/SharePointDataProvider'
 
 export interface IPracticePageWebPartProps {
-  description: string;
+  column1: string;
+  column2: string;
+  column3: string;
 }
 
 export default class PracticePageWebPart extends BaseClientSideWebPart<IPracticePageWebPartProps> {
@@ -26,7 +28,9 @@ export default class PracticePageWebPart extends BaseClientSideWebPart<IPractice
       PartnerPlay,
       {
         dataProvider : sharePointDataProvider,
-        description: this.properties.description
+        column1Title: this.properties.column1,
+        column2Title: this.properties.column2,
+        column3Title: this.properties.column3
       }
     );
 
@@ -41,15 +45,18 @@ export default class PracticePageWebPart extends BaseClientSideWebPart<IPractice
     return {
       pages: [
         {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('column1', {
+                  label: strings.Column1Label
+                }),
+                PropertyPaneTextField('column2', {
+                  label: strings.Column2Label
+                }),
+                PropertyPaneTextField('column3', {
+                  label: strings.Column3Label
                 })
               ]
             }

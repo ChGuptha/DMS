@@ -33,13 +33,13 @@ export default class PartnerPlay extends React.Component<IPartnerPlayProps, IPar
             <h1>{this.state.partnerPlayDetails.length && <p>{this.state.partnerPlayDetails[0].Solution_x0020_Area_x003a_Title}</p>}</h1>
               <div className={ styles.partnerplayrow }>
                 <div className={ styles.partnerplaycolumn1header }>
-                  PLAYS
+                  { this.props.column1Title }
                 </div>
                 <div className={ styles.partnerplaycolumn2header }>
-                  SALES CONVERSATIONS
+                { this.props.column2Title }
                 </div>
                 <div className={ styles.partnerplaycolumn2header }>
-                  MARKET OPPORTUNITIES
+                { this.props.column3Title }
                 </div>
               </div>
               {this.state.partnerPlayDetails.length && 

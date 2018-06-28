@@ -2,5 +2,6 @@ import { SharePointDataProvider } from "../dataProviders/SharePointDataProvider"
 
 export interface ISolutoinAreasProps {
   dataProvider : SharePointDataProvider
-  description: string;
+  title: string
+  titleBOM: string
 }

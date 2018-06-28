@@ -47,18 +47,18 @@ export default class SolutoinAreas extends React.Component<ISolutoinAreasProps, 
         <div className={ styles.container }>
           <div className={ styles.row }>
             <div className={ styles.column }>
-              <h3>Solution Areas</h3>
+              <h3>{this.props.title}</h3>
               {this.state.solutionAreas.length && 
                 this.state.solutionAreas.map((SolutionArea, i) =>{
                   return <div className={` ${styles.solutionArea}`} >
-                            <span><a href="#" onClick= { () => this.navigateUrl(SolutionArea.ID) }>{SolutionArea.Title}</a></span>
+                            <span><a href={ SolutionArea.Link }>{SolutionArea.Title}</a></span>
                           </div>;
               })}
             </div>
           </div>
           <div className={ styles.row }>
             <div className={ styles.column + ' ' + styles.playTypes}>
-              <h3>Partner Plays</h3>
+              <h3>{this.props.titleBOM}</h3>
               <div>
                 <a className={ this.state.selectedPlayType == 0 ? styles.active : '' } href="#" onClick={ () => this.changePlayType(0) } >All</a>
                 {this.state.playTypes.length &&

@@ -1,7 +1,7 @@
-declare interface ISolutoinAreasWebPartStrings {
-  PropertyPaneDescription: string;
+declare interface ISolutoinAreasWebPartStrings {  
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  TitleFieldLabel: string;
+  BOMTitleFieldLabel: string;
 }
 
 declare module 'SolutoinAreasWebPartStrings' {

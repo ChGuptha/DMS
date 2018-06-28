@@ -28,7 +28,7 @@ export default class PartnerPlay extends React.Component<IPartnerPlayProps, IPar
     return (
       <div className={ styles.partnerPlay }>
         <div className={ styles.container }>
-          <h3>Play: {this.state.partnerPlayDetail.Title }</h3>
+          <h3>{this.props.title}: {this.state.partnerPlayDetail.Title }</h3>
           <div className={ styles.row }>            
             <div className={ styles.column }>
             {

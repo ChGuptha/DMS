@@ -13,7 +13,7 @@ import { IPartnerPlayProps } from './components/IPartnerPlayProps';
 import { SharePointDataProvider } from './dataProviders/SharePointDataProvider'
 
 export interface IPartnerPlayWebPartProps {
-  description: string;
+  title: string;
 }
 
 export default class PartnerPlayWebPart extends BaseClientSideWebPart<IPartnerPlayWebPartProps> {
@@ -26,7 +26,7 @@ export default class PartnerPlayWebPart extends BaseClientSideWebPart<IPartnerPl
       PartnerPlay,
       {
         dataProvider : sharePointDataProvider,
-        description: this.properties.description
+        title: this.properties.title
       }
     );
 
@@ -41,15 +41,12 @@ export default class PartnerPlayWebPart extends BaseClientSideWebPart<IPartnerPl
     return {
       pages: [
         {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('title', {
+                  label: strings.TitleFieldLabel
                 })
               ]
             }

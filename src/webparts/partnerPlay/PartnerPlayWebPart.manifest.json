@@ -20,7 +20,7 @@
     "description": { "default": "PartnerPlay description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "PartnerPlay"
+      "title": "BOM"
     }
   }]
 }

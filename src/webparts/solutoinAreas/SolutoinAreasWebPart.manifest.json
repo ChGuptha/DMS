@@ -20,7 +20,8 @@
     "description": { "default": "SolutoinAreas description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "SolutoinAreas"
+      "title": "Solution Areas & Industry",
+      "titleBOM": "BOM"
     }
   }]
 }

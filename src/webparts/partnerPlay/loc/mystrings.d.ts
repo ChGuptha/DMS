@@ -1,7 +1,6 @@
 declare interface IPartnerPlayWebPartStrings {
-  PropertyPaneDescription: string;
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  TitleFieldLabel: string;
 }
 
 declare module 'PartnerPlayWebPartStrings' {

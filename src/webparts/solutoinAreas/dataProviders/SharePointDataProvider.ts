@@ -32,6 +32,7 @@ export class SharePointDataProvider{
                     <ViewFields>
                       <FieldRef Name="Title"/>
                       <FieldRef Name="ID"/>
+                      <FieldRef Name="Link"/>
                     </ViewFields>
                     <Query>
                       <Where>

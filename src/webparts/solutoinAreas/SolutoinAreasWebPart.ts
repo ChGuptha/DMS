@@ -12,7 +12,8 @@ import SolutoinAreas from './components/SolutoinAreas';
 import { ISolutoinAreasProps } from './components/ISolutoinAreasProps';
 import { SharePointDataProvider } from './dataProviders/SharePointDataProvider'
 export interface ISolutoinAreasWebPartProps {
-  description: string;
+  title: string;
+  titleBOM: string;
 }
 
 export default class SolutoinAreasWebPart extends BaseClientSideWebPart<ISolutoinAreasWebPartProps> {  
@@ -25,7 +26,8 @@ export default class SolutoinAreasWebPart extends BaseClientSideWebPart<ISolutoi
       SolutoinAreas,
       {
         dataProvider : sharePointDataProvider,
-        description: this.properties.description
+        title: this.properties.title,
+        titleBOM: this.properties.titleBOM
       }
     );
 
@@ -40,15 +42,15 @@ export default class SolutoinAreasWebPart extends BaseClientSideWebPart<ISolutoi
     return {
       pages: [
         {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('title', {
+                  label: strings.TitleFieldLabel
+                }),
+                PropertyPaneTextField('titleBOM', {
+                  label: strings.BOMTitleFieldLabel
                 })
               ]
             }

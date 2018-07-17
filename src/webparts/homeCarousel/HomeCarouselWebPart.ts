@@ -16,7 +16,7 @@ import { ListMock } from './services/ListMock';
 import { ListService } from './services/ListService';
 
 export interface IHomeCarouselWebPartProps {
-  
+  imageUrl : string
 }
 
 export default class HomeCarouselWebPart extends BaseClientSideWebPart<IHomeCarouselWebPartProps> {
@@ -28,7 +28,8 @@ export default class HomeCarouselWebPart extends BaseClientSideWebPart<IHomeCaro
       HomeCarousel,
       {
         listService : listService,
-        swiperOptions : this.properties
+        swiperOptions : this.properties,
+        imageUrl: this.properties.imageUrl
       }
     );
 
@@ -38,4 +39,23 @@ export default class HomeCarouselWebPart extends BaseClientSideWebPart<IHomeCaro
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }  
+
+  protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
+    return {
+      pages: [
+        {
+          groups: [
+            {
+              groupName: strings.BasicGroupName,
+              groupFields: [
+                PropertyPaneTextField('imageUrl', {
+                  label: strings.ImageUrlFieldName
+                })
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
 }

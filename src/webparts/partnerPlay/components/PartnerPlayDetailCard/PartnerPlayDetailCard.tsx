@@ -15,6 +15,7 @@ export class PartnerPlayDetailCard extends React.Component<IPartnerPlayDetailCar
 
     public render(): React.ReactElement<IPartnerPlayDetailCardProps>{
         return (
+            this.props.cardDetail.Title != "" && this.props.cardDetail.Image != "" &&
             <div className={ styles.partnerPlayDetailCard }>
                 <div className={ styles.partnerPlayDetailCardWrapper } onClick={ this.navigateUrl.bind(this) } style={{height: this.props.height + 'px'}}>
                     <Image className={ styles.partnerPlayDetailCardImage } height={this.props.height} src={ this.props.cardDetail.Image} alt={ this.props.cardDetail.Image } shouldFadeIn={ true } imageFit={ ImageFit.cover } />

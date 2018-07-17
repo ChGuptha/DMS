@@ -32,7 +32,7 @@ export default class PartnerPlay extends React.Component<IPartnerPlayProps, IPar
           <div className={ styles.row }>            
             <div className={ styles.column }>
             {
-              this.state.partnerPlayDetail.ID > 0 &&
+              this.state.partnerPlayDetail.ID > 0 && 
               <PartnerPlayDetailCard height={480} cardDetail= {{ Title: this.state.partnerPlayDetail.Tile1Title, Image: this.state.partnerPlayDetail.Tile1Image, Link: this.state.partnerPlayDetail.Tile1Link }}/>              
             }              
             </div>

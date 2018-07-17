@@ -37,8 +37,8 @@ export default class SolutoinAreas extends React.Component<ISolutoinAreasProps, 
     });
   }
 
-  public navigateUrl(solutionAreaID :  number){
-    window.open('./SolutionArea.aspx?sID=' + solutionAreaID, '_blank');
+  public navigateUrl(url :  string){
+    window.open(url);
   }
 
   public render(): React.ReactElement<ISolutoinAreasProps> {
@@ -48,10 +48,10 @@ export default class SolutoinAreas extends React.Component<ISolutoinAreasProps, 
           <div className={ styles.row }>
             <div className={ styles.column }>
               <h3>{this.props.title}</h3>
-              {this.state.solutionAreas.length && 
+              {this.state.solutionAreas.length > 0 && 
                 this.state.solutionAreas.map((SolutionArea, i) =>{
-                  return <div className={` ${styles.solutionArea}`} >
-                            <span><a href={ SolutionArea.Link }>{SolutionArea.Title}</a></span>
+                  return <div className={` ${styles.solutionArea}`} onClick={() => this.navigateUrl(SolutionArea.Link)} >
+                            <span>{SolutionArea.Title}</span>
                           </div>;
               })}
             </div>
@@ -60,17 +60,19 @@ export default class SolutoinAreas extends React.Component<ISolutoinAreasProps, 
             <div className={ styles.column + ' ' + styles.playTypes}>
               <h3>{this.props.titleBOM}</h3>
               <div>
-                <a className={ this.state.selectedPlayType == 0 ? styles.active : '' } href="#" onClick={ () => this.changePlayType(0) } >All</a>
-                {this.state.playTypes.length &&
+                {this.state.playTypes.length > 0 &&
+                  <a className={ this.state.selectedPlayType == 0 ? styles.active : '' } href="#" onClick={ () => this.changePlayType(0) } >All</a>
+                }
+                {this.state.playTypes.length > 0 &&
                   this.state.playTypes.map((PlayType, i) =>{
                     return <a href="#" className={ this.state.selectedPlayType == PlayType.ID ? styles.active : '' }  onClick={ () => this.changePlayType(PlayType.ID) }>{ PlayType.Title }</a>
-                  })}               
+                  })}
               </div>
             </div>
           </div>
           <div className={ styles.row + ` ` + styles.partnerPlaysRow }>
             <div className={ styles.column }>
-                  {this.state.solutionAreas.length &&
+                  {this.state.solutionAreas.length > 0 &&
                     this.state.solutionAreas.map((SolutionArea, i) => {
                       return <div className = {` ${styles.partnerPlays} `} >
                             {this.state.partnerPlays.length &&

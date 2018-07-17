@@ -52,7 +52,7 @@ export default class HomeCarousel extends React.Component<IHomeCarouselProps, IH
               </div>
             </div>
             <div className={styles.column} style={{textAlign : 'center'}}>
-              <img src={String(require('./Carousel_img.png'))} alt="No Image" />
+              <img src={this.props.imageUrl} alt="No Image" />
             </div>
           </div>
         </div>

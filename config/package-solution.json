@@ -3,7 +3,7 @@
   "solution": {
     "name": "OCPTool-client-side-solution",
     "id": "4fe5cf11-5ffd-4a1a-b6c3-277e8b8da8a4",
-    "version": "1.0.1.0",
+    "version": "1.0.2.0",
     "includeClientSideAssets": true
   },
   "paths": {
